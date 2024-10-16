@@ -1,0 +1,15 @@
+{
+  "name": "nba-fantasy-zone",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd nba-fantasy-zone-client && npm run dev\" \"cd nba-fantasy-zone-api && npm run dev\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
