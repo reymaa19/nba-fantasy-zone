@@ -7,7 +7,7 @@ NBA Fantasy Zone is a web application designed to enhance the experience of fant
 ### Problem Space
 
 Fantasy basketball participants often face challenges such as:
-- Lack of exciting fantasy draft web app alternatives 
+- Lack of exciting fantasy draft web apps
 - Lack of real-time information during live drafts
 - Difficulty in tracking player statistics and projections
 - Inefficient team management tools
@@ -37,11 +37,10 @@ The target users for this application include:
 ### Tech Stack
 
 - React
-- SASS
+- Sass
 - Node
 - Express
 - MySql
-- MongoDB
 - Axios
 
 ### APIs
@@ -141,8 +140,6 @@ GET /api/drafts/{draftId}/status <br>
 POST /api/drafts/{draftId}/pick <br> -->
 
 ## Roadmap
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date. 
-
 1. Project Setup and Infrastructure <br>
     1.1. Set up version control (Git repository) <br>
     1.2. Initialize frontend project with React <br>
