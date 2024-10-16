@@ -4,7 +4,7 @@
   "description": "## Overview",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"cd nba-fantasy-zone-client && npm run dev\" \"cd nba-fantasy-zone-api && npm run dev\" "
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm run dev\" "
   },
   "keywords": [],
   "author": "",
