@@ -46,9 +46,10 @@ The target users for this application include:
 ### APIs
 
 - [NBA.com API](https://github.com/swar/nba_api)
-- [balldontlie API](https://github.com/ynnadkrap/balldontlie)
-- [stats-tracker API](https://github.com/reymaa19/nba-stats-tracker)
+- [Balldontlie API](https://github.com/ynnadkrap/balldontlie)
+- [Stats-tracker API](https://github.com/reymaa19/nba-stats-tracker)
 - [NBA News API](https://github.com/kevinn03/nba_api)
+- [Player images](https://github.com/GreenGuitar0/nba-players)
 
 
 ### Sitemap
