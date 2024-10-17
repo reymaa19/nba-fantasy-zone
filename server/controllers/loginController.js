@@ -4,19 +4,32 @@ import initKnex from "knex";
 import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 
-export async function login(req, res) {
+export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
 
+    if (!username || !password) {
+      if (!username && password)
+        return res.status(401).json({ error: "Username is required" });
+      if (username && !password)
+        return res.status(401).json({ error: "Password is required" });
+      return res
+        .status(401)
+        .json({ error: "Username and Password is required" });
+    }
+
     const user = await knex("users").where({ username }).first();
+
+    if (!user)
+      return res.status(401).json({ error: "Username or Password is invalid" });
 
     const correctPassword =
       user === null
         ? false
         : await bcrypt.compare(password, user.password_hash);
 
-    if (!(user && correctPassword))
-      return req.status(401).json({ error: "Invalid Username or Password" });
+    if (!correctPassword)
+      return res.status(401).json({ error: "Username or Password is invalid" });
 
     const userForToken = { username, id: user.id };
 
@@ -27,8 +40,8 @@ export async function login(req, res) {
     return res.status(200).send({ token, username });
   } catch (err) {
     console.error(err);
-    return res.status(400).send({ error: err });
+    return res.status(500).send({ error: err });
   }
-}
+};
 
 export default login;

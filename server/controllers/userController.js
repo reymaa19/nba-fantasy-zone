@@ -2,18 +2,26 @@ import initKnex from "knex";
 import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 import bcrypt from "bcrypt";
+import "dotenv/config";
+import jwt from "jsonwebtoken";
 
-export async function createUser(req, res) {
+export const createUser = async (req, res) => {
   try {
     const { username, email, password, confirmPassword } = req.body;
+    const error = {};
 
-    if (!username)
-      return res.status(401).json({ error: "Username is required" });
-    if (!email) return res.status(401).json({ error: "Email is required" });
-    if (!password)
-      return res.status(401).json({ error: "Password is required" });
+    if (!username) error.username = "Username is required";
+    if (!email) error.email = "Email is required";
+    if (!password) error.password = "Password is required";
+    if (!confirmPassword) error.password = "Confirm Password is required";
+
+    if (Object.entries(error).length > 0)
+      return res.status(401).json({ error });
+
     if (password !== confirmPassword)
-      return res.status(401).json({ error: "Passwords must match" });
+      return res
+        .status(401)
+        .json({ error: { confirmPassword: "Passwords must match" } });
 
     const password_hash = await bcrypt.hash(password, 10);
 
@@ -23,13 +31,22 @@ export async function createUser(req, res) {
       password_hash,
     };
 
-    await knex("users").insert(user);
+    const result = await knex("users").insert(user);
 
-    res.status(201);
+    if (result[0] === 0) {
+      const user = await knex("users").where({ username }).first();
+      const userForToken = { username, id: user.id };
+
+      const token = jwt.sign(userForToken, process.env.SECRET, {
+        expiresIn: 60 * 60,
+      });
+
+      return res.status(201).send({ token, username });
+    }
   } catch (err) {
     console.error(err);
-    return res.status(400).json({ error: err });
+    return res.status(500).json({ error: err });
   }
-}
+};
 
 export default { createUser };
