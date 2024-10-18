@@ -37,7 +37,8 @@ The target users for this application include:
 ### Tech Stack
 
 - React
-- Sass
+- shadcn/ui
+- Aceternity UI
 - Node
 - Express
 - MySql
@@ -46,9 +47,9 @@ The target users for this application include:
 ### APIs
 
 - [NBA.com API](https://github.com/swar/nba_api)
-- [Stats-tracker API](https://github.com/reymaa19/nba-stats-tracker)
+<!-- - [Stats-tracker API](https://github.com/reymaa19/nba-stats-tracker) -->
 - [NBA News API](https://github.com/kevinn03/nba_api)
-- [Player images](https://github.com/GreenGuitar0/nba-players)
+<!-- - [Player images](https://github.com/GreenGuitar0/nba-players) -->
 
 
 ### Sitemap
