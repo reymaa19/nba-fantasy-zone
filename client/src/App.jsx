@@ -5,9 +5,11 @@ import Login from "@/components/Login";
 
 const App = () => {
 	const [user, setUser] = useState(null);
+	const [theme, setTheme] = useState("dark");
 
 	useEffect(() => {
 		const loggedUserJSON = window.localStorage.getItem("user");
+		const currentTheme = window.localStorage.getItem("theme");
 
 		if (loggedUserJSON) {
 			const user = JSON.parse(loggedUserJSON);
@@ -15,15 +17,46 @@ const App = () => {
 			// someService.setToken(user.token)
 		}
 
-		// Always apply the dark class to the document's root element
-		// Implement theme toggle later
-		document.documentElement.classList.add("dark");
+		document.documentElement.classList.add(currentTheme);
+		setTheme(currentTheme);
 	}, []);
+
+	useEffect(() => {
+		if (theme === "light") {
+			document.documentElement.classList.remove("dark");
+			document.documentElement.classList.add("light");
+		} else {
+			document.documentElement.classList.remove("light");
+			document.documentElement.classList.add("dark");
+		}
+	}, [theme]);
+
+	const handleUserChange = (newUser) => {
+		setUser(newUser);
+	};
+
+	const handleThemeChange = (newTheme) => {
+		setTheme(newTheme);
+	};
 
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={user ? <Dashboard /> : <Login />} />
+				<Route
+					path="/"
+					element={
+						user ? (
+							<Dashboard
+								user={user}
+								onUserChange={handleUserChange}
+								theme={theme}
+								onThemeChange={handleThemeChange}
+							/>
+						) : (
+							<Login />
+						)
+					}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);

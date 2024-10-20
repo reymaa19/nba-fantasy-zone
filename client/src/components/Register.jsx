@@ -28,7 +28,7 @@ export default function Register() {
 
 		if (response.status === 200) {
 			window.localStorage.setItem("user", JSON.stringify(response.data));
-			playerService.setToken(result.token);
+			//playerService.setToken(result.token);
 
 			setValues({
 				username: "",

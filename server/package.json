@@ -7,7 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "migrate": "npx knex migrate:latest",
-    "migrate:down": "npx knex migrate:down"
+    "migrate:down": "npx knex migrate:down",
+    "seed": "knex seed:run",
+    "migrate:rollback": "knex migrate:rollback"
   },
   "keywords": [],
   "author": "Reynald Maala",
