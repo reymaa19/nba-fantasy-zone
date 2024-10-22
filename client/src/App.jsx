@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "@/components/Dashboard";
 import Login from "@/components/Login";
+import Register from "@/components/Register";
 
 const App = () => {
 	const [user, setUser] = useState(null);
 	const [theme, setTheme] = useState("dark");
+	const [register, setRegister] = useState(false);
 
 	useEffect(() => {
 		const loggedUserJSON = window.localStorage.getItem("user");
@@ -39,6 +41,10 @@ const App = () => {
 		setTheme(newTheme);
 	};
 
+	const handleRegisterChange = () => {
+		setRegister(!register);
+	};
+
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -53,7 +59,17 @@ const App = () => {
 								onThemeChange={handleThemeChange}
 							/>
 						) : (
-							<Login />
+							<>
+								{register ? (
+									<Register
+										onRegisterChange={handleRegisterChange}
+									/>
+								) : (
+									<Login
+										onRegisterChange={handleRegisterChange}
+									/>
+								)}
+							</>
 						)
 					}
 				/>

@@ -10,7 +10,7 @@ export const up = (knex) => {
 		table.integer("TEAM_ID", 8, 2).notNullable();
 		table.integer("GP").notNullable();
 		table.integer("GS").notNullable();
-		table.float("MIN", 8, 2).notNullable();
+		table.float("MIN", 8, 2).defaultTo(0);
 		table.float("FGM", 8, 2).notNullable();
 		table.float("FGA", 8, 2).notNullable();
 		table.float("FG_PCT", 8, 2).notNullable();

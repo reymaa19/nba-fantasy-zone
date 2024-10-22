@@ -59,10 +59,10 @@ export async function seed(knex) {
 	);
 
 	const rows = [...totalsRows, ...averagesRows];
-
+    
 	try {
 		await knex(TABLE_NAME).insert(rows);
-		console.log("Data inserted successfully");
+        console.log("CareerTotalsRegularSeason", rows.length)
 	} catch (error) {
 		console.error("Error inserting data:", error);
 	}

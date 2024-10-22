@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export default function LoginForm() {
+export default function LoginForm({ onRegisterChange }) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
@@ -32,7 +32,7 @@ export default function LoginForm() {
 			setUsername("");
 			setPassword("");
 		} else {
-			setError(result.response.data.error);
+			setError(response.data.error);
 		}
 	};
 
@@ -83,6 +83,17 @@ export default function LoginForm() {
 							Sign in
 						</Button>
 					</CardFooter>
+					<div className="flex flex-col justify-center items-center mb-6">
+						<p>
+							Not Registered?{" "}
+							<a
+								className="cursor-pointer"
+								onClick={onRegisterChange}
+							>
+								Register
+							</a>
+						</p>
+					</div>
 				</Card>
 			</form>
 			{error && (

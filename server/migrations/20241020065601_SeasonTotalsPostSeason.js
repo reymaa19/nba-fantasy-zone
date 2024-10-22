@@ -13,7 +13,7 @@ export const up = (knex) => {
 		table.integer("PLAYER_AGE").notNullable();
 		table.integer("GP").notNullable();
 		table.integer("GS").notNullable();
-		table.float("MIN").notNullable();
+		table.float("MIN").defaultTo(0);
 		table.float("FGM").notNullable();
 		table.float("FGA").notNullable();
 		table.float("FG_PCT").notNullable();
@@ -42,4 +42,3 @@ export const up = (knex) => {
 export const down = (knex) => {
 	return knex.schema.dropTable("SeasonTotalsPostSeason");
 };
-

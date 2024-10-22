@@ -7,14 +7,17 @@ import { useState } from "react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-export default function Register() {
+export default function Register({ onRegisterChange }) {
+    // @@@ 
+    // TODO: FIX THE ERROR HANDLING
+    // @@@
 	const [values, setValues] = useState({
 		username: "",
 		email: "",
 		password: "",
 		confirmPassword: "",
 	});
-	const [error, setError] = useState("");
+	const [error, setError] = useState({});
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -26,7 +29,7 @@ export default function Register() {
 
 		const response = await userService.register(values);
 
-		if (response.status === 200) {
+		if (response.status === 201) {
 			window.localStorage.setItem("user", JSON.stringify(response.data));
 			//playerService.setToken(result.token);
 
@@ -36,8 +39,11 @@ export default function Register() {
 				password: "",
 				confirmPassword: "",
 			});
+
+			window.location.reload();
 		} else {
-			setError(result.response.data.error);
+			console.log(response);
+			setError(response.data.error);
 		}
 	};
 
@@ -49,7 +55,7 @@ export default function Register() {
 			<p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
 				See what this web app is capable of for free!
 			</p>
-			<form className="my-8" onSubmit={handleSubmit}>
+			<form className="mt-8" onSubmit={handleSubmit}>
 				<LabelInputContainer className="mb-4">
 					<Label htmlFor="username">Username</Label>
 					<Input
@@ -102,20 +108,34 @@ export default function Register() {
 					Sign up &rarr;
 					<BottomGradient />
 				</button>
+
+				<div className="flex flex-col justify-center items-center mt-6">
+					<p>
+						Already Registered?{" "}
+						<a
+							className="cursor-pointer"
+							onClick={onRegisterChange}
+						>
+							Login
+						</a>
+					</p>
+				</div>
 			</form>
 
-			{error && (
-				<Alert
-					variant="destructive"
-					className="w-full max-w-sm m-auto mt-4"
-				>
-					<AlertCircle className="h-4 w-4 " />
-					<AlertTitle>Error</AlertTitle>
-					<AlertDescription>
-						An error has occured in your registration
-					</AlertDescription>
-				</Alert>
-			)}
+			{
+				//   error && (
+				//   <Alert
+				//   	variant="destructive"
+				//   	className="w-full max-w-sm m-auto mt-4"
+				//   >
+				//   	<AlertCircle className="h-4 w-4 " />
+				//   	<AlertTitle>Error</AlertTitle>
+				//   	<AlertDescription>
+				//   		An error has occured in your registration
+				//   	</AlertDescription>
+				//   </Alert>
+				// )
+			}
 		</div>
 	);
 }
