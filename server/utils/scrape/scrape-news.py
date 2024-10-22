@@ -43,15 +43,17 @@ def scrape_stories():
 
         for article in articles:
             id = f'{uuid.uuid4()}'
-            src = article.find('img')['src']
-            title = article.find('h3').text
-            description = article.find('p').text
-            filename = f"public/news_images/{id}.jpg"
+            img_tag = article.find('img')
+            if img_tag and 'src' in img_tag.attrs:
+                src = img_tag['src']
+                title = article.find('h3').text if article.find('h3') else 'No title'
+                description = article.find('p').text if article.find('p') else 'No description'
+                filename = f"public/news_images/{id}.jpg"
 
-            download_image(src, filename)
+                download_image(src, filename)
 
-            story = {"id": id, "img": filename, "title": title, "description": description}
-            stories.append(story)
+                story = {"id": id, "img": filename, "title": title, "description": description}
+                stories.append(story)
 
         with open("data/current_news.json", 'w') as f:
             json.dump(stories, f, indent=4)
