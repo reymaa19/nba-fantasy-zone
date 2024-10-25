@@ -1,80 +1,26 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "@/components/Dashboard";
-import Login from "@/components/Login";
-import Register from "@/components/Register";
+import Draft from "@/components/Draft";
+import Signin from "@/components/auth/sign-in";
+import Signup from "@/components/auth/sign-up";
+import { ThemeProvider } from "@/components/theme-provider";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
-	const [user, setUser] = useState(null);
-	const [theme, setTheme] = useState("dark");
-	const [register, setRegister] = useState(false);
-
-	useEffect(() => {
-		const loggedUserJSON = window.localStorage.getItem("user");
-		const currentTheme = window.localStorage.getItem("theme");
-
-		if (loggedUserJSON) {
-			const user = JSON.parse(loggedUserJSON);
-			setUser(user);
-			// someService.setToken(user.token)
-		}
-
-		document.documentElement.classList.add(currentTheme);
-		setTheme(currentTheme);
-	}, []);
-
-	useEffect(() => {
-		if (theme === "light") {
-			document.documentElement.classList.remove("dark");
-			document.documentElement.classList.add("light");
-		} else {
-			document.documentElement.classList.remove("light");
-			document.documentElement.classList.add("dark");
-		}
-	}, [theme]);
-
-	const handleUserChange = (newUser) => {
-		setUser(newUser);
-	};
-
-	const handleThemeChange = (newTheme) => {
-		setTheme(newTheme);
-	};
-
-	const handleRegisterChange = () => {
-		setRegister(!register);
-	};
-
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route
-					path="/"
-					element={
-						user ? (
-							<Dashboard
-								user={user}
-								onUserChange={handleUserChange}
-								theme={theme}
-								onThemeChange={handleThemeChange}
-							/>
-						) : (
-							<>
-								{register ? (
-									<Register
-										onRegisterChange={handleRegisterChange}
-									/>
-								) : (
-									<Login
-										onRegisterChange={handleRegisterChange}
-									/>
-								)}
-							</>
-						)
-					}
-				/>
-			</Routes>
-		</BrowserRouter>
+		<ThemeProvider>
+			<div className="bg-background screen w-screen">
+				<BrowserRouter>
+					<div className="h-screen w-screen">
+						<Routes>
+							<Route path="/" element={<Dashboard />} />
+							<Route path="/sign-in" element={<Signin />} />
+							<Route path="/sign-up" element={<Signup />} />
+							<Route path="/draft" element={<Draft />} />
+						</Routes>
+					</div>
+				</BrowserRouter>
+			</div>
+		</ThemeProvider>
 	);
 };
 

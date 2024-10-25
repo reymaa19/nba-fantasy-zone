@@ -1,3 +1,4 @@
+
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -5,13 +6,13 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 //
 //const setToken = (newToken) => (_token = `Bearer ${newToken}`);
 
-export const getAllPlayers = async () => {
+export const createTeam = async (newTeam) => {
 	try {
-		const response = await axios.get(`${BASE_URL}/api/players`);
+		const response = await axios.post(`${BASE_URL}/api/teams`, newTeam);
 		return response;
 	} catch (err) {
 		return err;
 	}
 };
 
-export default { getAllPlayers };
+export default { getAllLastSeason };

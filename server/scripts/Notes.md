@@ -9,12 +9,23 @@
 - package.json scripts are found in each script file
 
 ## Setting up Python virtual environment:
+Create a virtual environment
 ```
 python3 -m venv venv
 ```
+
+Activate the virtual environment (Linux/Mac)
 ```
 source venv/bin/activate
 ```
+
+Activate the virtual environment (Windows)
 ```
-pip install -r utils/scrape/requirements.txt
+.\venv\Scripts\activate
+```
+
+Install the required packages
+```
+pip install -r server/utils/scrape/requirements.txt
+
 ```

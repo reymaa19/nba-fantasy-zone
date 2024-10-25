@@ -21,17 +21,19 @@ else:
 # Fetch career stats for each player
 for player in active_players:
     player_id = player['id']
-    
+
     # Check if the player's stats are already in the combined_stats
     if not any(player['id'] == player_id for player in combined_stats):
         # Fetch career stats
-        averages = playercareerstats.PlayerCareerStats(player_id=player_id, per_mode36='PerGame')
-        totals = playercareerstats.PlayerCareerStats(player_id=player_id, per_mode36='Totals')
-        
+        averages = playercareerstats.PlayerCareerStats(
+            player_id=player_id, per_mode36='PerGame')
+        totals = playercareerstats.PlayerCareerStats(
+            player_id=player_id, per_mode36='Totals')
+
         # Parse the JSON responses
         parsed_averages = json.loads(averages.get_json())
         parsed_totals = json.loads(totals.get_json())
-        
+
         # Add the player's stats to the combined_stats
         combined_stats.append({
             "id": player_id,
@@ -40,12 +42,13 @@ for player in active_players:
                 'totals': parsed_totals
             },
         })
-        
+
         # Update the JSON file immediately
         with open(output_path, 'w') as f:
             json.dump(combined_stats, f, indent=4)
-        
+
         print("Fetched and updated stats for player", player["full_name"])
-        time.sleep(15) # Sleep for 15 seconds to avoid hitting the API rate limit
+        # Sleep for 15 seconds to avoid hitting the API rate limit
+        time.sleep(15)
 
 print('Done!')
