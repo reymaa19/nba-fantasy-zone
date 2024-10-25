@@ -22,6 +22,8 @@ else:
 existing_players = {player['id']: player for player in active_players_info}
 
 # Function to get player info
+
+
 def get_player_info(player_id):
     player_info = CommonPlayerInfo(player_id=player_id)
     parsed_player_info = json.loads(player_info.get_json())
@@ -36,21 +38,23 @@ def get_player_info(player_id):
         'jersey': info_dict.get('JERSEY')
     }
 
+
 # Update each player with additional info
 for player in active_players:
     player_id = player['id']
-    
+
     # Check if the player's info is already in the active_players_info
     if player_id not in existing_players:
         player_info = get_player_info(player_id)
         player.update(player_info)
         active_players_info.append(player)
-        
+
         # Update the JSON file immediately
         with open(output_path, 'w') as f:
             json.dump(active_players_info, f, indent=4)
-        
+
         print("Fetched and updated info for player", player["full_name"])
-        time.sleep(5) # Sleep for 5 seconds to avoid hitting the API rate limit
+        # Sleep for 5 seconds to avoid hitting the API rate limit
+        time.sleep(5)
 
 print("Done!")
