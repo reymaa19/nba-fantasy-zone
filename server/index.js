@@ -8,7 +8,7 @@ import logger from "./middleware/logger.js";
 import playersController from "./controllers/playersController.js";
 import statsController from "./controllers/statsController.js";
 import { readNews } from "./utils/utils.js";
-//import teamsController from "./controllers/teamsController.js";
+import teamsController from "./controllers/teamsController.js";
 
 const { HOST_URL, PORT } = process.env;
 const __dirname = path.resolve();
@@ -30,7 +30,8 @@ app.get("/api/stats/lastSeason/:id", statsController.getLastSeason);
 app.get("/api/stats/lastSeason/", statsController.getLastSeason);
 
 // TEAMS
-//app.post("/api/teams", teamsController.createTeam);
+app.post("/api/teams", teamsController.createTeam);
+app.get("/api/teams/:user_id", teamsController.getTeam);
 
 // NEWS
 app.get("/api/news/:count", async (req, res) => {

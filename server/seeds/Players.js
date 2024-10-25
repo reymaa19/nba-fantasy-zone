@@ -35,12 +35,12 @@ export async function seed(knex) {
 				jersey: player.jersey,
 				image_path: `public/player_images/${player.id}.png`,
 			});
-        else print("No image for", player.full_name);
+		else print("No image for", player.full_name);
 	});
 
 	try {
 		await knex(TABLE_NAME).insert(rows);
-		console.log("Players", rows.length);
+		console.log(TABLE_NAME, rows.length);
 	} catch (error) {
 		console.error(error);
 	}

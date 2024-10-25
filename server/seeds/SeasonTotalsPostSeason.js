@@ -65,7 +65,7 @@ export async function seed(knex) {
  
 	try {
 		await knex(TABLE_NAME).insert(rows);
-        console.log("SeasonTotalsPostSeason", rows.length)
+        console.log(TABLE_NAME, rows.length)
 	} catch (error) {
 		console.error("Error inserting data:", error);
 	}

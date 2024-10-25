@@ -5,7 +5,7 @@
 export const up = (knex) => {
 	return knex.schema.createTable("SeasonTotalsPostSeason", (table) => {
 		table.uuid("ID").primary().defaultTo(knex.raw("(UUID())"));
-		table.integer("PLAYER_ID").notNullable();
+		table.uuid("PLAYER_ID").notNullable();
 		table.string("SEASON_ID", 10).notNullable();
 		table.string("LEAGUE_ID", 10).notNullable();
 		table.integer("TEAM_ID").notNullable();
@@ -32,6 +32,8 @@ export const up = (knex) => {
 		table.float("TOV").notNullable();
 		table.float("PF").notNullable();
 		table.float("PTS").notNullable();
+
+		table.foreign("PLAYER_ID").references("id").inTable("Players").onUpdate("CASCADE").onDelete("CASCADE");
 	});
 };
 

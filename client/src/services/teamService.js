@@ -1,4 +1,3 @@
-
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -15,4 +14,13 @@ export const createTeam = async (newTeam) => {
 	}
 };
 
-export default { getAllLastSeason };
+export const getTeam = async () => {
+	try {
+		const user_id = JSON.parse(window.localStorage.getItem("user")).id;
+		const response = await axios.get(`${BASE_URL}/api/teams/${user_id}`);
+		return response;
+	} catch (err) {
+		return err;
+	}
+};
+export default { createTeam, getTeam };

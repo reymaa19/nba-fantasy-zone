@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import Search from "@/components/ui/Search";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import playerService from "../services/player";
 import statService from "../services/statService";
+import teamService from "@/services/teamService";
 
 const Draft = ({ startingFive, setStartingFive }) => {
 	const [players, setPlayers] = React.useState([]);
@@ -53,7 +55,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 							{players.map((player) => {
 								const info = {
 									details: player,
-									lastSeason: stats?.filter((stat) => stat.PLAYER_ID === Number(player.id)),
+									lastSeason: stats?.filter((stat) => stat.PLAYER_ID === player.id),
 								};
 
 								if (
@@ -149,10 +151,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 							colors={[[255, 237, 213]]}
 							dotSize={9}
 						/>
-						<div
-							className="absolute inset-0 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
-							onClick={() => setPosition("Power Forward")}
-						/>
+						<div className="absolute inset-0 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]" />
 					</Card>
 				</ModalTrigger>
 			</div>
@@ -161,6 +160,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 };
 
 const DraftWithProvider = () => {
+	const navigate = useNavigate();
 	const [startingFive, setStartingFive] = React.useState({
 		"Small Forward": {},
 		"Shooting Guard": {},
@@ -170,7 +170,20 @@ const DraftWithProvider = () => {
 	});
 
 	const handleClick = async () => {
-		// Create team
+		const players = [];
+
+		for (const [_key, value] of Object.entries(startingFive)) {
+			players.push(value.details.id);
+		}
+
+		const response = await teamService.createTeam({
+			players,
+			user: JSON.parse(window.localStorage.getItem("user")).id,
+		});
+
+		if (response.status === 201) {
+			navigate("/");
+		}
 	};
 
 	return (

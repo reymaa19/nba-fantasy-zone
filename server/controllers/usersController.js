@@ -38,7 +38,7 @@ export const register = async (req, res) => {
 				expiresIn: 60 * 60,
 			});
 
-			return res.status(201).send({ token, username });
+			return res.status(201).send({ ...userForToken, token });
 		}
 	} catch (err) {
 		console.error(err);

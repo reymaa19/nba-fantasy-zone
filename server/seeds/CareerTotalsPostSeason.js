@@ -15,8 +15,7 @@ export async function seed(knex) {
 		return;
 	}
 
-	const extractResultSet = (player, type) =>
-		player.stats[type].resultSets.find((set) => set.name === TABLE_NAME);
+	const extractResultSet = (player, type) => player.stats[type].resultSets.find((set) => set.name === TABLE_NAME);
 
 	const totals = data.map((player) => extractResultSet(player, "totals"));
 	const averages = data.map((player) => extractResultSet(player, "averages"));
@@ -50,21 +49,16 @@ export async function seed(knex) {
 		PTS: row[23],
 	});
 
-	const totalsRows = totals.flatMap((resultSet) =>
-		resultSet ? resultSet.rowSet.map(mapRow) : []
-	);
+	const totalsRows = totals.flatMap((resultSet) => (resultSet ? resultSet.rowSet.map(mapRow) : []));
 
-	const averagesRows = averages.flatMap((resultSet) =>
-		resultSet ? resultSet.rowSet.map(mapRow) : []
-	);
+	const averagesRows = averages.flatMap((resultSet) => (resultSet ? resultSet.rowSet.map(mapRow) : []));
 
 	const rows = [...totalsRows, ...averagesRows];
 
 	try {
 		await knex(TABLE_NAME).insert(rows);
-        console.log("CareerTotalsPostSeason", rows.length)
+		console.log(TABLE_NAME, rows.length);
 	} catch (error) {
 		console.error("Error inserting data:", error);
 	}
 }
-

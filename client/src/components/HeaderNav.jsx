@@ -25,7 +25,7 @@ const HeaderNav = () => {
 	};
 
 	return (
-		<header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+		<header className="top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
 			<nav className="hidden flex-col gap-12 text-lg font-medium md:flex md:flex-row md:items-center md:gap-12 md:text-sm lg:gap-12">
 				<Link className="flex items-center gap-2 text-lg font-semibold md:text-base" to="/">
 					<NBAFantasyZoneLogo className="h-6 w-6" />
