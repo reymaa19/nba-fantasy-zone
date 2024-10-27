@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 
-export default function Search({ value, onChange }) {
+export default function Search({ value, onChange}) {
 	return (
 		<div>
 			<Input

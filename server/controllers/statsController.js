@@ -24,17 +24,15 @@ export const getLastSeason = async (req, res) => {
 	}
 };
 
-export const getCareer = async (req, res) => {
+export const getCareer = async (_req, res) => {
 	try {
-		const player_id = req.params.id;
+		const careers = await knex("CareerTotalsRegularSeason");
 
-		const career = await knex("CareerTotalsRegularSeason").where({ player_id });
-
-		if (career.length === 0) {
+		if (careers.length === 0) {
 			return res.status(404).json({ error: "Stats not found" });
 		}
 
-		return res.status(200).json(career);
+		return res.status(200).json(careers);
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ error: "Failed to fetch stats" });

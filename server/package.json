@@ -8,7 +8,7 @@
         "dev": "nodemon index.js",
         "migrate": "npx knex migrate:latest",
         "migrate:down": "npx knex migrate:down",
-        "seed": "knex seed:run",
+        "seed": "node ./seeds/runSeeds.js",
         "migrate:rollback": "knex migrate:rollback",
         "scrape-news": "node scripts/run-scrape-news.js"
     },

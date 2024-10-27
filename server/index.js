@@ -3,12 +3,13 @@ import "dotenv/config";
 import express from "express";
 import path from "path";
 import login from "./controllers/loginController.js";
-import { register } from "./controllers/usersController.js";
-import logger from "./middleware/logger.js";
 import playersController from "./controllers/playersController.js";
 import statsController from "./controllers/statsController.js";
+import teamsController from "./controllers/teamsController.js";
+import fantasyController from "./controllers/fantasyController.js";
+import { register } from "./controllers/usersController.js";
+import logger from "./middleware/logger.js";
 import { readNews } from "./utils/utils.js";
-//import teamsController from "./controllers/teamsController.js";
 
 const { HOST_URL, PORT } = process.env;
 const __dirname = path.resolve();
@@ -25,12 +26,14 @@ app.post("/api/login", login);
 app.get("/api/players", playersController.getPlayers);
 
 // STATS
-app.get("/api/stats/career/:id", statsController.getCareer);
+app.get("/api/stats/career/", statsController.getCareer);
 app.get("/api/stats/lastSeason/:id", statsController.getLastSeason);
 app.get("/api/stats/lastSeason/", statsController.getLastSeason);
 
 // TEAMS
-//app.post("/api/teams", teamsController.createTeam);
+app.post("/api/teams", teamsController.createTeam);
+app.get("/api/teams", teamsController.getTeams);
+app.get("/api/teams/:user_id", teamsController.getTeam);
 
 // NEWS
 app.get("/api/news/:count", async (req, res) => {
@@ -42,5 +45,8 @@ app.get("/api/news/:count", async (req, res) => {
 		return err;
 	}
 });
+
+// FANTASY
+app.get("/api/fantasy", fantasyController.getFantasy);
 
 app.listen(PORT, () => console.log(`App running on ${HOST_URL}:${PORT}`));

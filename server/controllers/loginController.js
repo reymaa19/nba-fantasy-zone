@@ -28,7 +28,7 @@ export const login = async (req, res) => {
 			expiresIn: 60 * 60,
 		});
 
-		return res.status(200).send({ token, username });
+		return res.status(200).send({ ...userForToken, token });
 	} catch (err) {
 		console.error(err);
 		return res.status(500).send({ error: err });

@@ -16,7 +16,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 const HeaderNav = () => {
 	const navigate = useNavigate();
-    const user = JSON.parse(window.localStorage.getItem("user")) 
+	const user = JSON.parse(window.localStorage.getItem("user"));
 	const username = user?.username || "demo-user";
 
 	const handleLogout = () => {
@@ -25,7 +25,7 @@ const HeaderNav = () => {
 	};
 
 	return (
-		<header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+		<header className="top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
 			<nav className="hidden flex-col gap-12 text-lg font-medium md:flex md:flex-row md:items-center md:gap-12 md:text-sm lg:gap-12">
 				<Link className="flex items-center gap-2 text-lg font-semibold md:text-base" to="/">
 					<NBAFantasyZoneLogo className="h-6 w-6" />
@@ -34,14 +34,20 @@ const HeaderNav = () => {
 				<Link className="text-foreground transition-colors hover:text-foreground" to="/">
 					Dashboard
 				</Link>
-				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/leaderboard">
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
 					Leaderboard
 				</Link>
 				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/draft">
 					Draft
 				</Link>
-				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="team">
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
+					League
+				</Link>
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
 					Team
+				</Link>
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
+					Analytics
 				</Link>
 			</nav>
 			<Sheet>
