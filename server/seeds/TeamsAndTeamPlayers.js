@@ -9,20 +9,20 @@ export async function seed(knex) {
 
 	const JeePeeTee = {
 		players: [
-			"1628983",
-			"1630169",
-			"203954",
-			"1628369",
-			"1630162",
-			"1641705",
-			"1628378",
-			"1628389",
-			"1628368",
-			"1630567",
-			"1630178",
-			"1628969",
+			"203999",
+			"1629029",
+			"203507",
+			"201939",
+			"203076",
+			"1626164",
+			"1627734",
+			"202710",
+			"202695",
+			"202331",
+			"1629027",
+			"1629627",
 		],
-		user: "4494a6f0-9284-11ef-a6aa-309c23dfe57e",
+		user: "4528fca7-7307-4715-8f4c-25397851425c",
 	};
 
 	const Claude = {
@@ -57,8 +57,6 @@ export async function seed(knex) {
 		}));
 
 		await knex("TeamPlayers").insert(teamPlayers);
-
-		await knex("Players").whereIn("id", userTeam.players).update({ is_TeamPlayer: true });
 	}
 
 	console.log(TABLE_NAME, rows.length);

@@ -24,9 +24,6 @@ export const createTeam = async (req, res) => {
 
 		await knex("TeamPlayers").insert(teamPlayers);
 
-		// Update each of the players to be is_TeamPlayer to true
-		await knex("Players").whereIn("id", players).update({ is_TeamPlayer: true });
-
 		return res.status(201).json("Success");
 	} catch (err) {
 		console.error(err);
@@ -70,4 +67,52 @@ export const getTeam = async (req, res) => {
 	}
 };
 
-export default { createTeam, getTeam };
+export const getTeams = async (_req, res) => {
+	try {
+		// Gets all the teams
+		const teams = await knex("Teams");
+		const usersPromises = teams.map(async (team) => await knex("Users").where({ id: team.user_id }).first());
+		const users = await executePromises(usersPromises);
+
+		console.log(users);
+		// Get all the teams players using team_id
+		const allTeamPlayers = teams.map((team) => {
+			return new Promise(async (resolve, reject) => {
+				try {
+					resolve(await knex("TeamPlayers").where({ team_id: team.id }));
+				} catch (err) {
+					reject(err);
+				}
+			});
+		});
+
+		const eachTeamAndTheirPlayers = await executePromises(allTeamPlayers);
+
+		// Get all the players and put them into their appropriate team
+		const allPlayersInEachTeam = eachTeamAndTheirPlayers.map((team) =>
+			team.map((teamPlayer) => {
+				return new Promise(async (resolve, reject) => {
+					try {
+						resolve(await knex("Players").where({ id: teamPlayer.player_id }).first());
+					} catch (err) {
+						reject(err);
+					}
+				});
+			}),
+		);
+
+		const usernamesAndTheirPlayers = [];
+
+		for (let i = 0; i < teams.length; i++) {
+			const result = await executePromises(allPlayersInEachTeam[i]);
+			usernamesAndTheirPlayers.push({ username: [users[i].username], players: result });
+		}
+
+		return res.status(200).json(usernamesAndTheirPlayers);
+	} catch (err) {
+		console.error(err);
+		return res.status(500).json({ error: err });
+	}
+};
+
+export default { createTeam, getTeam, getTeams };

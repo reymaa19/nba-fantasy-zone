@@ -22,7 +22,7 @@ export async function seed(knex) {
 		},
 		{
 			id: "4528fca7-7307-4715-8f4c-25397851425c",
-			username: "JeePeeTee",
+			username: "ChatGPT",
 			email: "pilot@gmail.com",
 			password_hash: "$2b$10$RDyvyF.k5oOh1LC.8GS5ZuEPBGvwsC/6k/4N8W.QCVddyFQ2RBCIS",
 		},

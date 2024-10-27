@@ -10,19 +10,9 @@ async function runSeeds() {
 			specific: "Players.js",
 		});
 
-		// Run CareerTotalsPostSeason seed file
-		await db.seed.run({
-			specific: "CareerTotalsPostSeason.js",
-		});
-
 		// Run CareerTotalsRegularSeason seed file
 		await db.seed.run({
 			specific: "CareerTotalsRegularSeason.js",
-		});
-
-		// Run SeasonTotalsPostSeason seed file
-		await db.seed.run({
-			specific: "SeasonTotalsPostSeason.js",
 		});
 
 		// Run SeasonTotalsRegularSeason seed file
@@ -39,6 +29,10 @@ async function runSeeds() {
 		await db.seed.run({
 			specific: "TeamsAndTeamPlayers.js",
 		});
+
+        await db.seed.run({
+            specific: "CurrentFantasySeason.js",
+        });
 
 		console.log("All seeds ran successfully");
 	} catch (error) {

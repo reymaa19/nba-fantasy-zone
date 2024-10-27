@@ -16,7 +16,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 const HeaderNav = () => {
 	const navigate = useNavigate();
-    const user = JSON.parse(window.localStorage.getItem("user")) 
+	const user = JSON.parse(window.localStorage.getItem("user"));
 	const username = user?.username || "demo-user";
 
 	const handleLogout = () => {
@@ -34,14 +34,20 @@ const HeaderNav = () => {
 				<Link className="text-foreground transition-colors hover:text-foreground" to="/">
 					Dashboard
 				</Link>
-				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/leaderboard">
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
 					Leaderboard
 				</Link>
 				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/draft">
 					Draft
 				</Link>
-				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="team">
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
+					League
+				</Link>
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
 					Team
+				</Link>
+				<Link className="text-muted-foreground transition-colors hover:text-foreground" to="/">
+					Analytics
 				</Link>
 			</nav>
 			<Sheet>

@@ -14,7 +14,6 @@ export const up = (knex) => {
 		table.string("position", 255).defaultTo("");
 		table.string("jersey").defaultTo("");
 		table.string("image_path", 255).defaultTo("");
-		table.boolean("is_TeamPlayer").defaultTo(false);
 	});
 };
 

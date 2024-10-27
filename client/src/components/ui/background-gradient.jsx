@@ -31,7 +31,7 @@ export const BackgroundGradient = ({ children, className, containerClassName, an
                 }}
                 className={cn(
                     "absolute inset-0 rounded-3xl z-[1] opacity-0",
-                    alwaysHover && "group-hover:opacity-60",
+                    alwaysHover ? "group-hover:opacity-60" : "group-hover:opacity-60",
                     "blur-xl transition-opacity duration-500 will-change-transform",
                     "bg-[radial-gradient(circle_farthest-side_at_0_100%,#00ccb1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#7b61ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#ffc414,transparent),radial-gradient(circle_farthest-side_at_0_0,#1ca0fb,#141316)]",
                 )}

@@ -23,4 +23,14 @@ export const getTeam = async () => {
 		return err;
 	}
 };
-export default { createTeam, getTeam };
+
+export const getTeams = async () => {
+	try {
+		const response = await axios.get(`${BASE_URL}/api/teams`);
+		return response;
+	} catch (err) {
+		return err;
+	}
+};
+
+export default { createTeam, getTeam, getTeams };
