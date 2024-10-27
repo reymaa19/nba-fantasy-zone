@@ -4,7 +4,7 @@
  */
 export const up = (knex) => {
 	return knex.schema.createTable("Players", (table) => {
-		table.uuid("id").primary().notNullable();
+		table.uuid("id").primary().defaultTo(knex.raw("(UUID())"));
 		table.string("full_name", 255).notNullable();
 		table.string("first_name", 255).notNullable();
 		table.string("last_name", 255).notNullable();

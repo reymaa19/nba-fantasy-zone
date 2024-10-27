@@ -6,7 +6,9 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { Button } from "@/components/ui/button";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import Search from "@/components/ui/Search";
+import teamService from "@/services/teamService";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import playerService from "../services/player";
 import statService from "../services/statService";
 
@@ -15,6 +17,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 	const [position, setPosition] = React.useState("");
 	const [stats, setStats] = React.useState([]);
 	const [search, setSearch] = React.useState("");
+	const [sort, setSort] = React.useState("PTS");
 	const { setOpen } = useModal();
 
 	React.useEffect(() => {
@@ -23,13 +26,19 @@ const Draft = ({ startingFive, setStartingFive }) => {
 			setPlayers(response.data);
 		};
 
-		const fetchLastSeason = async () => {
-			const response = await statService.getAllLastSeason();
+		//const fetchLastSeason = async () => {
+		//	const response = await statService.getAllLastSeason();
+		//	setStats(response.data);
+		//};
+
+		const fetchCareer = async () => {
+			const response = await statService.getAllCareer();
 			setStats(response.data);
 		};
 
 		fetchPlayers();
-		fetchLastSeason();
+		fetchCareer();
+		//fetchLastSeason();
 	}, []);
 
 	const handleCardClick = (player) => {
@@ -38,33 +47,54 @@ const Draft = ({ startingFive, setStartingFive }) => {
 		setOpen(false);
 	};
 
+	const playerDetailsAndStats = players
+		.map((player) => ({
+			details: player,
+			stats: stats?.filter((stat) => stat.PLAYER_ID === player.id),
+		}))
+		.sort((a, b) => {
+			const valueA = a.stats[1]?.[sort] || 0;
+			const valueB = b.stats[1]?.[sort] || 0;
+			if (valueB > valueA) return 1;
+			else return -1;
+		});
+
 	return (
 		<div className="flex items-center justify-center w-screen pt-16">
 			<ModalBody>
 				<ModalContent>
 					<div className="flex justify-between pb-4">
-						<h1 className="w-[318px] ml-10">{position}</h1>
+						<h1 className="w-[318px] ml-10 text-left mt-2">{position}</h1>
 						<div className="w-[318px] mr-10">
 							<Search value={search} onChange={(e) => setSearch(e.target.value)} />
 						</div>
 					</div>
 					<div className="flex flex-col h-[calc(100vh-200px)] overflow-y-auto pr-4">
 						<div className="flex flex-row justify-center flex-wrap gap-[1rem] pt-4">
-							{players.map((player) => {
-								const info = {
-									details: player,
-									lastSeason: stats?.filter((stat) => stat.PLAYER_ID === Number(player.id)),
-								};
-
+							{playerDetailsAndStats.map((player) => {
 								if (
-									player.position.includes(position.split(" ")[1] || "Center") &&
-									info.lastSeason.length > 0
+									player.details.position.includes(position.split(" ")[1] || "Center") &&
+									player.stats.length > 0
 								) {
 									if (
-										player.full_name.toLowerCase().includes(search.toLowerCase()) ||
-										player.jersey.toString().includes(search)
+										position === "Small Forward" &&
+										(player.details.position.includes("Center") ||
+											player.details.position.includes("Guard"))
 									)
-										return <StatCard key={player.id} player={info} onClick={handleCardClick} />;
+										return;
+									if (position === "Power Forward" && player.details.position.includes("Guard"))
+										return;
+									if (
+										player.details.full_name.toLowerCase().includes(search.toLowerCase()) ||
+										player.details.jersey.toString().includes(search)
+									)
+										return (
+											<StatCard
+												key={player.details.id}
+												player={player}
+												onClick={handleCardClick}
+											/>
+										);
 								}
 							})}
 						</div>
@@ -149,10 +179,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 							colors={[[255, 237, 213]]}
 							dotSize={9}
 						/>
-						<div
-							className="absolute inset-0 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
-							onClick={() => setPosition("Power Forward")}
-						/>
+						<div className="absolute inset-0 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]" />
 					</Card>
 				</ModalTrigger>
 			</div>
@@ -161,6 +188,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 };
 
 const DraftWithProvider = () => {
+	const navigate = useNavigate();
 	const [startingFive, setStartingFive] = React.useState({
 		"Small Forward": {},
 		"Shooting Guard": {},
@@ -170,7 +198,20 @@ const DraftWithProvider = () => {
 	});
 
 	const handleClick = async () => {
-		// Create team
+		const players = [];
+
+		for (const [_key, value] of Object.entries(startingFive)) {
+			players.push(value.details.id);
+		}
+
+		const response = await teamService.createTeam({
+			players,
+			user: JSON.parse(window.localStorage.getItem("user")).id,
+		});
+
+		if (response.status === 201) {
+			navigate("/");
+		}
 	};
 
 	return (

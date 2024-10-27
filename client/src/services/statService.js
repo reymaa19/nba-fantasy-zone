@@ -14,4 +14,13 @@ export const getAllLastSeason = async () => {
 	}
 };
 
-export default { getAllLastSeason };
+export const getAllCareer = async () => {
+	try {
+		const response = await axios.get(`${BASE_URL}/api/stats/career`);
+		return response;
+	} catch (err) {
+		return err;
+	}
+};
+
+export default { getAllLastSeason, getAllCareer };
