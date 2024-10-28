@@ -27,7 +27,7 @@ async function runSeeds() {
 
 		// Run TeamsAndTeamPlayers seed file
 		await db.seed.run({
-			specific: "TeamsAndTeamPlayers.js",
+			specific: "Teams.js",
 		});
 
         await db.seed.run({

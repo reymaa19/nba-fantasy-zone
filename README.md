@@ -215,7 +215,7 @@ GET /api/stats/lastSeason<br>
 Team Management: <br>
 POST /api/teams/ <br>
 GET /api/teams/ <br>
-GET /api/teams/:user_id} <br>
+GET /api/teams/:user_id <br>
 
 News Information:
 GET /api/news/:count <br>
@@ -299,11 +299,11 @@ Ensure you have the following installed:
         ```sh
         cd server
         ```
-    - Copy the `.env.example` file to [.env](http://_vscodecontentref_/#%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fhome%2Freynald%2Fcurrent%2Fserver%2F.env%22%2C%22scheme%22%3A%22vscode-remote%22%2C%22authority%22%3A%22wsl%2BUbuntu-24.04%22%7D%7D) and fill in the required environment variables:
+    - Copy the `.env.example` file to `.env` and fill in the required environment variables:
         ```sh
         cp .env.example .env
         ```
-    - Update the [.env](http://_vscodecontentref_/#%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fhome%2Freynald%2Fcurrent%2Fserver%2F.env%22%2C%22scheme%22%3A%22vscode-remote%22%2C%22authority%22%3A%22wsl%2BUbuntu-24.04%22%7D%7D) file with your local database credentials and other necessary configurations.
+    - Update the `.env` file with your local database credentials and other necessary configurations.
 
 3. **Install server dependencies:**
 
@@ -326,11 +326,11 @@ Ensure you have the following installed:
 
 6. **Set up the client environment:**
 
-    - Navigate to the [client](http://_vscodecontentref_/#%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fhome%2Freynald%2Fcurrent%2Fclient%22%2C%22scheme%22%3A%22vscode-remote%22%2C%22authority%22%3A%22wsl%2BUbuntu-24.04%22%7D%7D) directory:
+    - Navigate to the `client` directory:
         ```sh
         cd ../client
         ```
-    - Copy the `.env.example` file to [.env](http://_vscodecontentref_/#%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fhome%2Freynald%2Fcurrent%2Fserver%2F.env%22%2C%22scheme%22%3A%22vscode-remote%22%2C%22authority%22%3A%22wsl%2BUbuntu-24.04%22%7D%7D) and fill in the required environment variables:
+    - Copy the `.env.example` file to `.env` and fill in the required environment variables:
         ```sh
         cp .env.example .env
         ```

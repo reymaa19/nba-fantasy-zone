@@ -42,7 +42,6 @@ export default function Register({ onRegisterChange }) {
 
 			window.location.reload();
 		} else {
-			console.log(response);
 			setError(response.data.error);
 		}
 	};

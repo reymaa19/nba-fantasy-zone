@@ -1,7 +1,9 @@
 import HeaderNav from "@/components/HeaderNav";
-import { BackgroundGradient } from "@/components/ui/background-gradient";
+import StatCard from "@/components/StatCard";
+import { ModalBody, ModalContent, ModalProvider, ModalTrigger, useModal } from "@/components/ui/animated-modal";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import fantasyService from "@/services/fantasyService";
@@ -9,8 +11,6 @@ import newsService from "@/services/newsService";
 import teamService from "@/services/teamService";
 import React from "react";
 import { Link } from "react-router-dom";
-import StatCard from "@/components/StatCard";
-import { ModalBody, ModalContent, ModalProvider, ModalTrigger, useModal } from "@/components/ui/animated-modal";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -122,7 +122,7 @@ export default function Dashboard() {
 								</AspectRatio>
 								<div className="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-50 text-white rounded-xl">
 									<CardHeader>
-										<CardTitle className="text-lg text-left tracking-wide">{story.title}</CardTitle>
+										<CardTitle className="hidden text-sm xl:text-lg lg:block text-left tracking-wide">{story.title}</CardTitle>
 									</CardHeader>
 								</div>
 							</Link>
@@ -168,8 +168,8 @@ export default function Dashboard() {
 													</TableCell>
 													<TableCell>
 														<div className="font-medium">
-															{team.username == "Claude" && "AI League"}
-															{team.username == "ChatGPT" && "AI League"}
+															{team.username.includes("G") && "G League"}
+															{team.username.includes("J") && "J Friends"}
 														</div>
 													</TableCell>
 													<TableCell className="flex justify-center gap-4">
@@ -196,6 +196,7 @@ export default function Dashboard() {
 												</TableRow>
 											);
 										})}
+
 								</TableBody>
 							</Table>
 						</CardContent>
