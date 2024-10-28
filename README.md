@@ -289,7 +289,7 @@ Ensure you have the following installed:
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/yourusername/nba-fantasy-zone.git
+    git clone https://github.com/reymaa19/nba-fantasy-zone.git
     cd nba-fantasy-zone
     ```
 
