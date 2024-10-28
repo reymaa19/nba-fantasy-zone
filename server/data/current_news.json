@@ -1,0 +1,86 @@
+[
+    {
+        "id": "76c2848c-f10b-4319-9cae-9dd6e605224e",
+        "img": "public/news_images/76c2848c-f10b-4319-9cae-9dd6e605224e.jpg",
+        "title": "Saturday's NBA TV tripleheader full of star power",
+        "description": "NBA TV\u2019s Saturday tripleheader boasts two Western Conference duels featuring four former Kia NBA MVPs.",
+        "link": "https://www.nba.com/news/saturday-tripleheader-three-games-three-must-see-matchups"
+    },
+    {
+        "id": "7729a198-4db7-4208-8255-bc95fcd944f4",
+        "img": "public/news_images/7729a198-4db7-4208-8255-bc95fcd944f4.jpg",
+        "title": "NBA players born on Nov. 3",
+        "description": "With over 5,000 players in NBA history, at least one player was born on every day of the calendar year.",
+        "link": "https://www.nba.com/news/nba-players-born-on-nov-3"
+    },
+    {
+        "id": "5dbf1849-6035-4b80-ba47-4bf8bbb86b2f",
+        "img": "public/news_images/5dbf1849-6035-4b80-ba47-4bf8bbb86b2f.jpg",
+        "title": "Starting 5, Oct. 26: AD sparks Lakers' rally",
+        "description": "No rim is safe when the Greek Freak gets going.",
+        "link": "https://www.nba.com/news/starting-5-oct-26-ad-sparks-electric-lakers-rally-two-pure-scorers-show-out-ingram-calls-game"
+    },
+    {
+        "id": "ee9062fb-d157-484b-9a15-d07e3a19c474",
+        "img": "public/news_images/ee9062fb-d157-484b-9a15-d07e3a19c474.jpg",
+        "title": "5 takeaways: Down 22, Davis rallies Lakers",
+        "description": "The Lakers look like AD's team, JJ Redick appears ready for the job and the Suns' defense remains a work in progress.",
+        "link": "https://www.nba.com/news/5-takeaways-suns-lakers"
+    },
+    {
+        "id": "3754329a-8248-472a-80e5-db084cb01778",
+        "img": "public/news_images/3754329a-8248-472a-80e5-db084cb01778.jpg",
+        "title": "5 things to know: Rockets-Spurs (8:30 ET, League Pass)",
+        "description": "Victor Wembanyama and the San Antonio Spurs take on Alperen Sengun's Rockets in an all-Texas matchup.",
+        "link": "https://www.nba.com/news/nba-league-pass-game-of-the-day-rockets-at-spurs-830-et"
+    },
+    {
+        "id": "31c08f9c-b5ec-4720-bcb9-2dc58c6b3c0b",
+        "img": "public/news_images/31c08f9c-b5ec-4720-bcb9-2dc58c6b3c0b.jpg",
+        "title": "5 takeaways: Towns delivers in MSG opener",
+        "description": "Karl-Anthony Towns shines under the MSG spotlight, Tyrese Haliburton sputters and the Knicks roll in their home opener.",
+        "link": "https://www.nba.com/news/5-takeaways-pacers-knicks"
+    },
+    {
+        "id": "0febebb7-4625-4b58-9f64-44cc193fe131",
+        "img": "public/news_images/0febebb7-4625-4b58-9f64-44cc193fe131.jpg",
+        "title": "Hornets' Miller (glute) out at least a week",
+        "description": "Miller, the No. 2 overall pick in the 2023 NBA Draft, is expected to miss at least 3 games.",
+        "link": "https://www.nba.com/news/hornets-brandon-miller-injury-update"
+    },
+    {
+        "id": "3bc862e6-1089-4b1d-a8d7-b87d9d8f630b",
+        "img": "public/news_images/3bc862e6-1089-4b1d-a8d7-b87d9d8f630b.jpg",
+        "title": "Ingram, Williamson ready to step up",
+        "description": "There are reasons to believe the Pelicans can stay afloat while Murray is injured, starting with Brandon Ingram and Zion Williamson.",
+        "link": "https://www.nba.com/news/brandon-ingram-zion-williamson-ready-to-step-up"
+    },
+    {
+        "id": "050db563-934c-4b5c-a456-d4865c8e008d",
+        "img": "public/news_images/050db563-934c-4b5c-a456-d4865c8e008d.jpg",
+        "title": "Early season waiver wire adds",
+        "description": "RotoWire targets the best waiver wire additions early in the 2024-25 NBA season.",
+        "link": "https://www.nba.com/news/early-season-waiver-wire-adds"
+    },
+    {
+        "id": "cb2d013d-f155-49d4-b762-9374e34a55f7",
+        "img": "public/news_images/cb2d013d-f155-49d4-b762-9374e34a55f7.jpg",
+        "title": "5 things to know: Grizz-Rockets (8 ET, League Pass)",
+        "description": "Houston looks to rebound from its season opening loss against a well-balanced Memphis squad.",
+        "link": "https://www.nba.com/news/nba-league-pass-game-of-day-oct-25-2024"
+    },
+    {
+        "id": "98ed6f14-020a-4564-8e23-7d40a15417cf",
+        "img": "public/news_images/98ed6f14-020a-4564-8e23-7d40a15417cf.jpg",
+        "title": "Kia MVP Ladder: 15 names to eye in '24-25",
+        "description": "Fresh faces are looking to raise their profile as defending Kia MVP Nikola Joki\u0107 eyes his 4th career trophy.",
+        "link": "https://www.nba.com/news/kia-mvp-ladder-15-names-to-watch-2024-25-season"
+    },
+    {
+        "id": "30db3c0b-ced9-4c6f-99c4-a48f148ae3f0",
+        "img": "public/news_images/30db3c0b-ced9-4c6f-99c4-a48f148ae3f0.jpg",
+        "title": "NBA alters Warriors-Blazers score after finding error",
+        "description": "Golden State was not credited for a made free throw in the third quarter of its now 140-104 win vs. Portland.",
+        "link": "https://www.nba.com/news/nba-finds-scoring-error-warriors-blazers"
+    }
+]
