@@ -29,7 +29,7 @@ export default function Dashboard() {
 	const [fantasyTeam, setFantasyTeam] = React.useState([]);
 	const [playerFantasyPoints, setPlayerFantasyPoints] = React.useState({});
 	const user = JSON.parse(window.localStorage.getItem("user"));
-	const username = user?.username || "demo-user";
+	const username = user?.username || "User";
 
 	React.useEffect(() => {
 		async function fetchNews() {
@@ -39,10 +39,12 @@ export default function Dashboard() {
 
 		async function fetchTeam() {
 			const response = await teamService.getTeam();
-			const formattedData = response.data.map((player) => ({
-				...player,
-				image_path: BASE_URL + "/" + player.image_path,
-			}));
+			if (response.length === 0) return;
+			const formattedData =
+				response.data?.map((player) => ({
+					...player,
+					image_path: BASE_URL + "/" + player.image_path,
+				})) || [];
 
 			setTeam(formattedData);
 		}
@@ -122,14 +124,16 @@ export default function Dashboard() {
 								</AspectRatio>
 								<div className="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-50 text-white rounded-xl">
 									<CardHeader>
-										<CardTitle className="hidden text-sm xl:text-lg lg:block text-left tracking-wide">{story.title}</CardTitle>
+										<CardTitle className="hidden text-sm xl:text-lg lg:block text-left tracking-wide">
+											{story.title}
+										</CardTitle>
 									</CardHeader>
 								</div>
 							</Link>
 						</Card>
 					))}
 				</div>
-				<div className="grid flex-1 gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
+				<div className={`grid flex-1 gap-4 md:gap-8 lg:grid-cols-2 ${user ? "xl:grid-cols-3" : ""}`}>
 					<Card className="xl:col-span-2" x-chunk="dashboard-01-chunk-4 ">
 						<CardHeader className="flex flex-row items-center">
 							<div className="grid gap-2">
@@ -196,53 +200,56 @@ export default function Dashboard() {
 												</TableRow>
 											);
 										})}
-
 								</TableBody>
 							</Table>
 						</CardContent>
 					</Card>
-					<Card x-chunk="dashboard-01-chunk-5">
-						<CardHeader className="flex flex-row justify-between pt-6">
-							<div className="flex flex-col gap-2">
-								<CardTitle>{username}'s Team</CardTitle>
-								<CardDescription>Your team's current players and fantasy points</CardDescription>
-							</div>
-							<ModalTrigger
-								className="
+					{user && (
+						<Card x-chunk="dashboard-01-chunk-5">
+							<CardHeader className="flex flex-row justify-between pt-6">
+								<div className="flex flex-col gap-2">
+									<CardTitle>{username}'s Team</CardTitle>
+									<CardDescription>Your team's current players and fantasy points</CardDescription>
+								</div>
+								<ModalTrigger
+									className="
 inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-9 rounded-md px-3
                                     "
-							>
-								Expand
-							</ModalTrigger>
-						</CardHeader>
-						<div className="flex flex-row items-center justify-between pt-0 space-y-1.5 p-6">
-							<p className="text-muted-foreground font-medium text-sm">Players</p>
-							<p className="text-muted-foreground font-medium text-sm">Fantasy Points</p>
-						</div>
-						<CardContent className="flex flex-col gap-3 mt-[-12px]">
-							{team
-								.sort((a, b) => {
-									const valueA = playerFantasyPoints[a.id] || 0;
-									const valueB = playerFantasyPoints[b.id] || 0;
-									if (valueB > valueA) return 1;
-									else return -1;
-								})
-								?.map((player) => (
-									<div className="flex items-center gap-4 justify-between" key={player.id}>
-										<div className="flex items-center gap-4">
-											<Avatar className="hidden h-[57px] w-[72px] sm:flex">
-												<AvatarImage src={player.image_path} alt="Avatar" />
-												<AvatarFallback>{player.full_name + " profile"}</AvatarFallback>
-											</Avatar>
-											<div className="gap-1">
-												<p className="text-sm font-medium leading-none">{player.full_name}</p>
+								>
+									Expand
+								</ModalTrigger>
+							</CardHeader>
+							<div className="flex flex-row items-center justify-between pt-0 space-y-1.5 p-6">
+								<p className="text-muted-foreground font-medium text-sm">Players</p>
+								<p className="text-muted-foreground font-medium text-sm">Fantasy Points</p>
+							</div>
+							<CardContent className="flex flex-col gap-3 mt-[-12px]">
+								{team
+									.sort((a, b) => {
+										const valueA = playerFantasyPoints[a.id] || 0;
+										const valueB = playerFantasyPoints[b.id] || 0;
+										if (valueB > valueA) return 1;
+										else return -1;
+									})
+									?.map((player) => (
+										<div className="flex items-center gap-4 justify-between" key={player.id}>
+											<div className="flex items-center gap-4">
+												<Avatar className="hidden h-[57px] w-[72px] sm:flex">
+													<AvatarImage src={player.image_path} alt="Avatar" />
+													<AvatarFallback>{player.full_name + " profile"}</AvatarFallback>
+												</Avatar>
+												<div className="gap-1">
+													<p className="text-sm font-medium leading-none">
+														{player.full_name}
+													</p>
+												</div>
 											</div>
+											<div className="text-right">{playerFantasyPoints[player.id] || 0}</div>
 										</div>
-										<div className="text-right">{playerFantasyPoints[player.id] || 0}</div>
-									</div>
-								))}
-						</CardContent>
-					</Card>
+									))}
+							</CardContent>
+						</Card>
+					)}{" "}
 				</div>
 			</main>
 		</ModalProvider>

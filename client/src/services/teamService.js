@@ -16,7 +16,8 @@ export const createTeam = async (newTeam) => {
 
 export const getTeam = async () => {
 	try {
-		const user_id = JSON.parse(window.localStorage.getItem("user")).id;
+		const user_id = JSON.parse(window.localStorage.getItem("user"))?.id;
+		if (!user_id) return [];
 		const response = await axios.get(`${BASE_URL}/api/teams/${user_id}`);
 		return response;
 	} catch (err) {

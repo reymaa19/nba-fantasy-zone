@@ -11,6 +11,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import playerService from "../services/player";
 import statService from "../services/statService";
+import HeaderNav from "@/components/HeaderNav";
 
 const Draft = ({ startingFive, setStartingFive }) => {
 	const [players, setPlayers] = React.useState([]);
@@ -189,6 +190,7 @@ const Draft = ({ startingFive, setStartingFive }) => {
 
 const DraftWithProvider = () => {
 	const navigate = useNavigate();
+	const user = JSON.parse(window.localStorage.getItem("user"));
 	const [startingFive, setStartingFive] = React.useState({
 		"Small Forward": {},
 		"Shooting Guard": {},
@@ -196,6 +198,15 @@ const DraftWithProvider = () => {
 		"Point Guard": {},
 		"Power Forward": {},
 	});
+
+	React.useEffect(() => {
+		async function fetchTeam() {
+			const response = await teamService.getTeam();
+			if (response?.data.length > 0) navigate("/");
+		}
+
+		fetchTeam();
+	}, []);
 
 	const handleClick = async () => {
 		const players = [];
@@ -216,17 +227,26 @@ const DraftWithProvider = () => {
 
 	return (
 		<ModalProvider>
+			<HeaderNav />
 			<Draft startingFive={startingFive} setStartingFive={setStartingFive} />
 
-			<div
-				className={`flex justify-center ${startingFive["Small Forward"].details && startingFive["Shooting Guard"].details && startingFive["Center"].details && startingFive["Point Guard"].details && startingFive["Power Forward"].details ? "block" : "hidden"}`}
-			>
-				<BackgroundGradient alwaysHover={true}>
-					<Button variant="create" size="lg" onClick={handleClick}>
-						Create Team
-					</Button>
-				</BackgroundGradient>
-			</div>
+			{!user ? (
+				<div className="w-full flex justify-center">
+					<p className="text-lg font-medium tracking-wide text-rose-400">
+						You have to be logged in to draft a team
+					</p>
+				</div>
+			) : (
+				<div
+					className={`flex justify-center ${startingFive["Small Forward"].details && startingFive["Shooting Guard"].details && startingFive["Center"].details && startingFive["Point Guard"].details && startingFive["Power Forward"].details ? "block" : "hidden"}`}
+				>
+					<BackgroundGradient alwaysHover={true}>
+						<Button variant="create" size="lg" onClick={handleClick}>
+							Create Team
+						</Button>
+					</BackgroundGradient>
+				</div>
+			)}
 		</ModalProvider>
 	);
 };
