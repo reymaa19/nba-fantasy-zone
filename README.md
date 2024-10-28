@@ -207,7 +207,7 @@ POST /api/login/ <br>
 Player Information: <br>
 GET /api/players/ <br>
 
-Statistics:
+Statistics: <br>
 GET /api/stats/career/ <br>
 GET /api/stats/lastSeason/:id<br>
 GET /api/stats/lastSeason<br>
@@ -352,7 +352,7 @@ Ensure you have the following installed:
 
 -   Setting up a Python virtual environment is only necessary if you intend to utilize the python scripts in the server/utils/scape directory (More info inside server/script).
 
-## Setting up Python virtual environment:
+### Setting up Python virtual environment:
 
 Change directory into the server
 
