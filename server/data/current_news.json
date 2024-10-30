@@ -1,79 +1,72 @@
 [
     {
-        "id": "99c16e3a-3971-482e-9b88-3af97d753878",
-        "img": "public/news_images/99c16e3a-3971-482e-9b88-3af97d753878.jpg",
+        "id": "a6751cb6-bce8-4ac2-b4a6-8de148e9980c",
+        "img": "public/news_images/a6751cb6-bce8-4ac2-b4a6-8de148e9980c.jpg",
+        "title": "Lonzo out at least 10 days with wrist injury",
+        "description": "The Bulls announced on Tuesday that Lonzo Ball suffered the injury in Monday's 126-123 win over the Grizzlies.",
+        "link": "https://www.nba.com/news/bulls-lonzo-ball-wrist-injury"
+    },
+    {
+        "id": "25ec6dff-9f6a-4ba3-993d-4c24de922191",
+        "img": "public/news_images/25ec6dff-9f6a-4ba3-993d-4c24de922191.jpg",
+        "title": "76ers fined $100K for comments on Embiid\u2019s status",
+        "description": "Philadelphia has been fined for its public statements that were inconsistent with Embiid's health status and in violation of NBA rules.",
+        "link": "https://www.nba.com/news/sixers-fined-100k-for-public-comments-joel-embiid-health-status"
+    },
+    {
+        "id": "24ff9ab8-d9bd-44ab-949c-74326159e725",
+        "img": "public/news_images/24ff9ab8-d9bd-44ab-949c-74326159e725.jpg",
         "title": "Embiid, George both out for game vs. Pistons",
         "description": "Philadelphia's duo will miss their season debut for the fourth straight game because of their nagging knee injuries.",
         "link": "https://www.nba.com/news/paul-george-joel-embiid-out-vs-pistons"
     },
     {
-        "id": "0dca6fc2-3724-40b7-96b5-c6cd6549f674",
-        "img": "public/news_images/0dca6fc2-3724-40b7-96b5-c6cd6549f674.jpg",
+        "id": "5c9f05e7-06b8-45ae-9463-89e981a73a3a",
+        "img": "public/news_images/5c9f05e7-06b8-45ae-9463-89e981a73a3a.jpg",
         "title": "Jurgensen named executive director of NBA Foundation",
         "description": "Jurgensen will be responsible for the strategic development, creation and implementation of the NBA Foundation\u2019s efforts.",
         "link": "https://www.nba.com/news/nba-foundation-names-ruth-jurgensen-as-new-executive-director"
     },
     {
-        "id": "194a52db-1adf-4fb2-a5f0-c3c0ec9758ff",
-        "img": "public/news_images/194a52db-1adf-4fb2-a5f0-c3c0ec9758ff.jpg",
+        "id": "01295e34-2df0-4445-9b46-330ee196c890",
+        "img": "public/news_images/01295e34-2df0-4445-9b46-330ee196c890.jpg",
         "title": "Jazz's Hendricks stretchered off with broken leg",
         "description": "Jazz forward Taylor Hendricks suffers a broken right fibula and dislocated ankle in the 3rd quarter of Monday's game in Dallas.",
         "link": "https://www.nba.com/news/utah-jazzs-taylor-hendricks-stretchered-off-the-floor-after-breaking-his-leg"
     },
     {
-        "id": "51130d10-a105-482c-8f4c-8e319b5c944c",
-        "img": "public/news_images/51130d10-a105-482c-8f4c-8e319b5c944c.jpg",
+        "id": "5b6a8017-01ff-47d4-9016-513648420474",
+        "img": "public/news_images/5b6a8017-01ff-47d4-9016-513648420474.jpg",
         "title": "Banchero drops 50 on Pacers, ties Magic record in win",
         "description": "Tracy McGrady had set the franchise high-water mark for scoring in a half, which Paolo Banchero ties by shooting 13-for-17.",
         "link": "https://www.nba.com/news/paolo-banchero-ties-magic-record-with-a-37-point-first-half"
     },
     {
-        "id": "a5ea6e5e-2d9a-49de-9700-43a7cf7393df",
-        "img": "public/news_images/a5ea6e5e-2d9a-49de-9700-43a7cf7393df.jpg",
+        "id": "148478a5-e34f-46eb-bb8e-f6220cf5a93f",
+        "img": "public/news_images/148478a5-e34f-46eb-bb8e-f6220cf5a93f.jpg",
         "title": "NBA League Pass Watch Guide: Week 2",
         "description": "10 must-see games on NBA League Pass in Week 2 of the 2024-25 season.",
         "link": "https://www.nba.com/news/nba-league-pass-watch-guide-week-2"
     },
     {
-        "id": "742faffd-a118-4bc2-85d0-d01a15687f4c",
-        "img": "public/news_images/742faffd-a118-4bc2-85d0-d01a15687f4c.jpg",
+        "id": "40fb10bd-ef8b-4793-ad5e-9244fbc687f9",
+        "img": "public/news_images/40fb10bd-ef8b-4793-ad5e-9244fbc687f9.jpg",
         "title": "Bucks look to bounce back tonight vs. Celtics",
         "description": "The Bucks are working to regain their footing and reassert themselves as contenders under coach Doc Rivers.",
         "link": "https://www.nba.com/news/bucks-look-to-move-past-slow-start-tonight-vs-celtics"
     },
     {
-        "id": "4b2d5c07-7689-4fd0-9d8e-9111d2aee9c2",
-        "img": "public/news_images/4b2d5c07-7689-4fd0-9d8e-9111d2aee9c2.jpg",
+        "id": "833c542f-f513-4d31-bd5b-0ea7e4c8551e",
+        "img": "public/news_images/833c542f-f513-4d31-bd5b-0ea7e4c8551e.jpg",
         "title": "NBA Birthdays: Players born on Nov. 6",
         "description": "With over 5,000 players in NBA history, at least one player was born on every day of the calendar year.",
         "link": "https://www.nba.com/news/nba-players-born-on-nov-6"
     },
     {
-        "id": "36b4dc92-3b23-4a08-99fc-d95ac0d417ee",
-        "img": "public/news_images/36b4dc92-3b23-4a08-99fc-d95ac0d417ee.jpg",
+        "id": "15536d1d-f0fa-4088-aaff-08c6d282e314",
+        "img": "public/news_images/15536d1d-f0fa-4088-aaff-08c6d282e314.jpg",
         "title": "NBA Fantasy: Week 2 Start/Sit",
         "description": "RotoWire highlights Start/Sit candidates for Week 2 of NBA Fantasy action.",
         "link": "https://www.nba.com/news/nba-fantasy-week-2-start-sit"
-    },
-    {
-        "id": "b73e5579-5241-4c4b-9675-c832191cf8cb",
-        "img": "public/news_images/b73e5579-5241-4c4b-9675-c832191cf8cb.jpg",
-        "title": "Davis, Tatum named Players of the Week",
-        "description": "The stars in Los Angeles and Boston take home the honors for Week 1.",
-        "link": "https://www.nba.com/news/nba-players-of-the-week-1-anthony-davis-jayson-tatum"
-    },
-    {
-        "id": "eb900416-efa5-4ac3-905f-22ca55981292",
-        "img": "public/news_images/eb900416-efa5-4ac3-905f-22ca55981292.jpg",
-        "title": "Morehouse, Tuskegee to play in 2025 HBCU Classic",
-        "description": "The SIAC matchup on Feb. 15, 2025 at Oakland Arena is part of NBA All-Star 2025 in the San Francisco Bay Area.\r\n",
-        "link": "https://www.nba.com/news/morehouse-tuskegee-2025-hbcu-classic"
-    },
-    {
-        "id": "9b536cdc-dac8-41c7-b9dd-cb1eac18de23",
-        "img": "public/news_images/9b536cdc-dac8-41c7-b9dd-cb1eac18de23.jpg",
-        "title": "Power Rankings: Lakers, Cavs climb into Top 5",
-        "description": "Cleveland and L.A. look sharp to open 2024-25, while Boston continues to lead the way this week.",
-        "link": "https://www.nba.com/news/power-rankings-2024-25-week-2"
     }
 ]

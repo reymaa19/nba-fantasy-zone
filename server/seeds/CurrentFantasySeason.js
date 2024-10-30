@@ -7,12 +7,10 @@ import fs from "fs/promises";
 export async function seed(knex) {
 	const TABLE_NAME = "CurrentFantasySeason";
 	let data;
-	//let playersOnTeams = [];
 	let activePlayers = [];
 
 	try {
 		data = JSON.parse(await fs.readFile("data/current_fantasy.json", "utf8"));
-		//playersOnTeams = result.map(({ _, player_id }) => player_id); // All the player_ids that are on a team
 		const result = JSON.parse(await fs.readFile("data/active_players_info.json"));
 		activePlayers = result.map((player) => player.id);
 	} catch (error) {
@@ -25,7 +23,7 @@ export async function seed(knex) {
 	const rows = data[0].rowSet
 		.map((row) => {
 			if (activePlayers.includes(row[0])) {
-				return {
+				const playerData = {
 					PLAYER_ID: row[0],
 					PLAYER_NAME: row[1],
 					PLAYER_POSITION: row[2],
@@ -47,9 +45,14 @@ export async function seed(knex) {
 					FTA: row[18],
 					FT_PCT: row[19],
 				};
+				if (!playerData.PLAYER_NAME) {
+					console.table(row);
+					return null; // Return null to filter out this row
+				}
+				return playerData;
 			}
 		})
-		.filter(Boolean); // Filter out undefined values
+		.filter(Boolean); // Filter out undefined and null values
 
 	try {
 		await knex(TABLE_NAME).insert(rows);
