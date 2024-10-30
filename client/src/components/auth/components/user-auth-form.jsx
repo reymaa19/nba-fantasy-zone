@@ -24,7 +24,7 @@ const formSchema = z.object({
 
 export function UserAuthForm({ className, ...props }) {
 	const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const form = useForm({
 		resolver: zodResolver(formSchema),
@@ -45,7 +45,7 @@ export function UserAuthForm({ className, ...props }) {
 					window.localStorage.setItem("user", JSON.stringify(response.data));
 
 					form.reset();
-                    navigate("/")
+					navigate("/");
 				} else {
 					form.setError("username", {
 						type: "manual",
@@ -116,7 +116,10 @@ export function UserAuthForm({ className, ...props }) {
 
 						<div className="flex flex-col justify-center items-center mb-6">
 							<p>
-								Not Registered? <Link className="underline" to="/sign-up">Register</Link>
+								Not Registered?{" "}
+								<Link className="hover:underline font-medium" to="/sign-up">
+									Register
+								</Link>
 							</p>
 						</div>
 					</div>

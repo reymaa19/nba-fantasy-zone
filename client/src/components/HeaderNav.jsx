@@ -1,4 +1,6 @@
-import React from "react";
+import { ModeToggle } from "@/components/mode-toggle";
+import NBAFantasyZoneLogo from "@/components/NBAFantasyZoneLogo";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,12 +10,10 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { CircleUser, Menu, LogIn } from "lucide-react";
-import NBAFantasyZoneLogo from "@/components/NBAFantasyZoneLogo";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { ModeToggle } from "@/components/mode-toggle";
 import teamService from "@/services/teamService";
+import { CircleUser, LogIn, Menu } from "lucide-react";
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const HeaderNav = () => {
 	const navigate = useNavigate();
@@ -76,9 +76,16 @@ const HeaderNav = () => {
 						<Link href="#" className="hover:text-foreground" to="/">
 							Dashboard
 						</Link>
-						<Link className="text-muted-foreground hover:text-foreground" to="/draft">
-							Draft
-						</Link>
+						{!team ? (
+							<Link
+								className={`text-${location.pathname == "/draft" ? "" : "muted-"}foreground transition-colors hover:text-foreground`}
+								to="/draft"
+							>
+								Draft
+							</Link>
+						) : (
+							""
+						)}
 					</nav>
 				</SheetContent>
 			</Sheet>
@@ -113,7 +120,7 @@ const HeaderNav = () => {
 						variant="secondary"
 						size="icon"
 						className="rounded-full"
-						onClick={() => navigate("/sign-in")}
+						onClick={() => navigate("/sign-in", { replace: true })}
 					>
 						<LogIn className="h-5 w-5" />
 					</Button>

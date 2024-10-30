@@ -159,7 +159,7 @@ export function UserAuthForm({ className, ...props }) {
 
                         <div className="flex flex-col justify-center items-center mb-6">
                             <p>
-                                Already Registered? <Link className="underline" to="/sign-in">Login</Link>
+                                Already Registered? <Link className="hover:underline font-medium" to="/sign-in">Login</Link>
                             </p>
                         </div>
                     </div>

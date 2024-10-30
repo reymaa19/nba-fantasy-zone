@@ -40,8 +40,10 @@ The target users for this application include:
 -   React
 -   Python
 -   shadcn/ui
+-   Tailwind CSS
+-   Node
 -   Express
--   MySql
+-   MySQL
 
 ### APIs
 
