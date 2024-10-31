@@ -1,72 +1,79 @@
 [
     {
-        "id": "a6751cb6-bce8-4ac2-b4a6-8de148e9980c",
-        "img": "public/news_images/a6751cb6-bce8-4ac2-b4a6-8de148e9980c.jpg",
+        "id": "3116f507-2b2b-483c-b36c-fd12f6ee2390",
+        "img": "public/news_images/3116f507-2b2b-483c-b36c-fd12f6ee2390.jpg",
+        "title": "12 spookiest NBA storylines at Halloween",
+        "description": "The 2024-25 season is underway and these incidents, moments and trends are floating around as October ends.",
+        "link": "https://www.nba.com/news/12-spooky-storylines-2024-25-halloween"
+    },
+    {
+        "id": "8df85abd-8487-4f19-ba0e-5e29668030fc",
+        "img": "public/news_images/8df85abd-8487-4f19-ba0e-5e29668030fc.jpg",
+        "title": "5 takeaways: Siakam's clutch 3 delivers Pacers",
+        "description": "Indiana blows a 24-point lead but recovers in OT to topple the defending champs on Pascal Siakam's clutch 3-pointer.",
+        "link": "https://www.nba.com/news/celtics-pacers-5-takeaways"
+    },
+    {
+        "id": "ea7a415c-8e4c-4024-85c7-d2ddb4156fcf",
+        "img": "public/news_images/ea7a415c-8e4c-4024-85c7-d2ddb4156fcf.jpg",
+        "title": "NBA Fantasy: Roster advice for Oct. 30",
+        "description": "RotoWire gives tips on who to play and avoid in Yahoo Fantasy.",
+        "link": "https://www.nba.com/news/nba-fantasy-who-to-play-and-who-to-avoid-for-oct-30"
+    },
+    {
+        "id": "c0045099-84d7-4bcc-8561-7e8dd9383b79",
+        "img": "public/news_images/c0045099-84d7-4bcc-8561-7e8dd9383b79.jpg",
+        "title": "Unbeaten Celtics, Cavs & Thunder in action tonight",
+        "description": "The Celtics, Thunder and Cavaliers each head into Wednesday night's action with unbeaten records.",
+        "link": "https://www.nba.com/news/unbeaten-celtics-cavaliers-and-thunder-all-in-action-tonight"
+    },
+    {
+        "id": "7305d990-2d3e-4850-bf23-f22306f22a63",
+        "img": "public/news_images/7305d990-2d3e-4850-bf23-f22306f22a63.jpg",
+        "title": "Raptors' Barnes (orbital fracture) out 3 weeks",
+        "description": "Toronto's All-Star swingman suffered the injury in the 4th quarter of the Raptors' overtime loss to the Nuggets.",
+        "link": "https://www.nba.com/news/scottie-barnes-orbital-fracture-injury"
+    },
+    {
+        "id": "dce614be-78d1-4888-bcb8-50b9a8c10501",
+        "img": "public/news_images/dce614be-78d1-4888-bcb8-50b9a8c10501.jpg",
+        "title": "LeBron, Bronny both expected to play vs. Cavs",
+        "description": "The father-and-son duo last suited up together in the Lakers' season-opener on Oct. 22.",
+        "link": "https://www.nba.com/news/lebron-james-bronny-james-vs-cavaliers"
+    },
+    {
+        "id": "e5a6b0f3-13bd-4bb1-8eff-c8f0d631ef15",
+        "img": "public/news_images/e5a6b0f3-13bd-4bb1-8eff-c8f0d631ef15.jpg",
+        "title": "Jazz coping with Hendricks' gruesome injury",
+        "description": "Hendricks is expected to miss the rest of the season after suffering a fractured right fibula and dislocated ankle.",
+        "link": "https://www.nba.com/news/jazz-taylor-hendricks-injury"
+    },
+    {
+        "id": "0eef854e-1c2d-4813-a36d-cd3cc21a4e45",
+        "img": "public/news_images/0eef854e-1c2d-4813-a36d-cd3cc21a4e45.jpg",
+        "title": "5 takeaways: Mavs win West Finals rematch",
+        "description": "Anthony Edwards scores 24 in the 1st quarter before Luka Don\u010di\u0107 and Kyrie Irving make the Wolves relive the West Finals.",
+        "link": "https://www.nba.com/news/mavericks-timberwolves-5-takeaways"
+    },
+    {
+        "id": "140c0970-ef37-4933-9b79-c823001d494d",
+        "img": "public/news_images/140c0970-ef37-4933-9b79-c823001d494d.jpg",
+        "title": "Gay announces retirement after 17 seasons",
+        "description": "Gay\u00a0announced his retirement in an open letter he wrote on The Player's Tribune, saying that he feels like 'the luckiest guy in the world.'",
+        "link": "https://www.nba.com/news/rudy-gay-announces-retirement"
+    },
+    {
+        "id": "f732d769-7938-41e6-aa41-aef4540340d8",
+        "img": "public/news_images/f732d769-7938-41e6-aa41-aef4540340d8.jpg",
         "title": "Lonzo out at least 10 days with wrist injury",
         "description": "The Bulls announced on Tuesday that Lonzo Ball suffered the injury in Monday's 126-123 win over the Grizzlies.",
         "link": "https://www.nba.com/news/bulls-lonzo-ball-wrist-injury"
     },
     {
-        "id": "25ec6dff-9f6a-4ba3-993d-4c24de922191",
-        "img": "public/news_images/25ec6dff-9f6a-4ba3-993d-4c24de922191.jpg",
+        "id": "b6de4c45-9a07-4b3f-8407-0c7285f05754",
+        "img": "public/news_images/b6de4c45-9a07-4b3f-8407-0c7285f05754.jpg",
         "title": "76ers fined $100K for comments on Embiid\u2019s status",
         "description": "Philadelphia has been fined for its public statements that were inconsistent with Embiid's health status and in violation of NBA rules.",
         "link": "https://www.nba.com/news/sixers-fined-100k-for-public-comments-joel-embiid-health-status"
-    },
-    {
-        "id": "24ff9ab8-d9bd-44ab-949c-74326159e725",
-        "img": "public/news_images/24ff9ab8-d9bd-44ab-949c-74326159e725.jpg",
-        "title": "Embiid, George both out for game vs. Pistons",
-        "description": "Philadelphia's duo will miss their season debut for the fourth straight game because of their nagging knee injuries.",
-        "link": "https://www.nba.com/news/paul-george-joel-embiid-out-vs-pistons"
-    },
-    {
-        "id": "5c9f05e7-06b8-45ae-9463-89e981a73a3a",
-        "img": "public/news_images/5c9f05e7-06b8-45ae-9463-89e981a73a3a.jpg",
-        "title": "Jurgensen named executive director of NBA Foundation",
-        "description": "Jurgensen will be responsible for the strategic development, creation and implementation of the NBA Foundation\u2019s efforts.",
-        "link": "https://www.nba.com/news/nba-foundation-names-ruth-jurgensen-as-new-executive-director"
-    },
-    {
-        "id": "01295e34-2df0-4445-9b46-330ee196c890",
-        "img": "public/news_images/01295e34-2df0-4445-9b46-330ee196c890.jpg",
-        "title": "Jazz's Hendricks stretchered off with broken leg",
-        "description": "Jazz forward Taylor Hendricks suffers a broken right fibula and dislocated ankle in the 3rd quarter of Monday's game in Dallas.",
-        "link": "https://www.nba.com/news/utah-jazzs-taylor-hendricks-stretchered-off-the-floor-after-breaking-his-leg"
-    },
-    {
-        "id": "5b6a8017-01ff-47d4-9016-513648420474",
-        "img": "public/news_images/5b6a8017-01ff-47d4-9016-513648420474.jpg",
-        "title": "Banchero drops 50 on Pacers, ties Magic record in win",
-        "description": "Tracy McGrady had set the franchise high-water mark for scoring in a half, which Paolo Banchero ties by shooting 13-for-17.",
-        "link": "https://www.nba.com/news/paolo-banchero-ties-magic-record-with-a-37-point-first-half"
-    },
-    {
-        "id": "148478a5-e34f-46eb-bb8e-f6220cf5a93f",
-        "img": "public/news_images/148478a5-e34f-46eb-bb8e-f6220cf5a93f.jpg",
-        "title": "NBA League Pass Watch Guide: Week 2",
-        "description": "10 must-see games on NBA League Pass in Week 2 of the 2024-25 season.",
-        "link": "https://www.nba.com/news/nba-league-pass-watch-guide-week-2"
-    },
-    {
-        "id": "40fb10bd-ef8b-4793-ad5e-9244fbc687f9",
-        "img": "public/news_images/40fb10bd-ef8b-4793-ad5e-9244fbc687f9.jpg",
-        "title": "Bucks look to bounce back tonight vs. Celtics",
-        "description": "The Bucks are working to regain their footing and reassert themselves as contenders under coach Doc Rivers.",
-        "link": "https://www.nba.com/news/bucks-look-to-move-past-slow-start-tonight-vs-celtics"
-    },
-    {
-        "id": "833c542f-f513-4d31-bd5b-0ea7e4c8551e",
-        "img": "public/news_images/833c542f-f513-4d31-bd5b-0ea7e4c8551e.jpg",
-        "title": "NBA Birthdays: Players born on Nov. 6",
-        "description": "With over 5,000 players in NBA history, at least one player was born on every day of the calendar year.",
-        "link": "https://www.nba.com/news/nba-players-born-on-nov-6"
-    },
-    {
-        "id": "15536d1d-f0fa-4088-aaff-08c6d282e314",
-        "img": "public/news_images/15536d1d-f0fa-4088-aaff-08c6d282e314.jpg",
-        "title": "NBA Fantasy: Week 2 Start/Sit",
-        "description": "RotoWire highlights Start/Sit candidates for Week 2 of NBA Fantasy action.",
-        "link": "https://www.nba.com/news/nba-fantasy-week-2-start-sit"
     }
 ]
