@@ -383,6 +383,6 @@ Activate the virtual environment (Windows)
 Install the required packages
 
 ```sh
-pip install -r server/utils/scrape/requirements.txt
+pip install -r utils/scrape/requirements.txt
 
 ```
